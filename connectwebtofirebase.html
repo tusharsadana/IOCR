@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+<script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBRDYRGU7bNvdN49OcSq4LXrtrggFl2Spo",
+    authDomain: "hackathonniit.firebaseapp.com",
+    databaseURL: "https://hackathonniit.firebaseio.com",
+    projectId: "hackathonniit",
+    storageBucket: "hackathonniit.appspot.com",
+    messagingSenderId: "114544769499"
+  };
+  firebase.initializeApp(config);
+</script>
+<!-- Firebase App is always required and must be first -->
+<script src="https://www.gstatic.com/firebasejs/5.5.6/firebase-app.js"></script>
+
+<!-- Add additional services that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/5.5.6/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.6/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.6/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.6/firebase-messaging.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.6/firebase-functions.js"></script>
+
+<!-- Comment out (or don't include) services that you don't want to use -->
+<!-- <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase-storage.js"></script> -->
+
+    <title></title>
+  </head>
+  <body>
+
+<form class="" onclick="submitClick" method="post" >
+  <input type="text" name="lat" value="" id="lat">
+  <input type="text" name="lon" value="" id="lon">
+  <input type="submit" name="" value="" id="submit">
+
+</form>
+
+<script type="text/javascript">
+var config = {
+  apiKey: "AIzaSyBRDYRGU7bNvdN49OcSq4LXrtrggFl2Spo",
+  authDomain: "hackathonniit.firebaseapp.com",
+  databaseURL: "https://hackathonniit.firebaseio.com",
+  projectId: "hackathonniit",
+  storageBucket: "hackathonniit.appspot.com",
+  messagingSenderId: "114544769499"
+};
+firebase.initializeApp(config);
+var database = firebase.database();
+
+var name = document.getElementById("lat").value;
+var lon = document.getElementById("lon").value;
+
+function submitClick(){
+  firebase.database().ref('users/' + userId).set({
+    username: name,
+    email: lon
+  });
+}
+
+
+</script>
+  </body>
+</html>
