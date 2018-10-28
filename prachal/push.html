@@ -1,0 +1,22 @@
+
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>push notification test</title>
+            <link rel="stylesheet" href="/styles.css">
+        </head>
+        <body>
+        </body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.5/push.js"></script>
+        <script type="text/javascript">
+        	Push.create("IOCT", {
+    body: "Missing person found",
+    icon: 'LOGO.png',
+    timeout: 900000000,
+    onClick: function () {
+        window.focus();
+        this.close();
+    }
+});
+        </script>
+    </html>

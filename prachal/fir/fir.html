@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Fir </title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" href="../css1/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+     <div class="container main-menu">
+            <div class="row align-items-center justify-content-between d-flex">
+              <div id="logo">
+               <!--  <a href="index.html"><img src="logo2.png" alt="" title="" /></a> -->
+              <a href="../home.html"><h2>IOCR</h2></a>
+              </div>
+              <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                 <li><a href="../home.html">Home</a></li>
+                  <li class="menu-active"><a href="#">register fir</a></li>
+                  <li class="menu-active"><a href="../heatmap.html">heatmap</a></li>
+                  
+<!--                   <li><a href="about.html">Login</a></li>
+ -->           <!--        <li><a href="services.html">register</a></li> -->
+                   
+              </ul>
+              </nav><!-- #nav-menu-container -->            
+            </div>
+          </div>
+
+	<div class="container-contact100">
+		<div class="contact100-map" id="google_map" data-map-x="27.9854" data-map-y="76.3827" data-pin="images/icons/map-marker.png" data-scrollwhell="0" data-draggable="1"></div>
+
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form">
+				<span class="contact100-form-title">
+					register an FIR
+				</span>
+
+				<div class="wrap-input100 validate-input" data-validate="Please enter your name">
+					<input class="input100" type="text" name="name" placeholder="Full Name">
+					<span class="focus-input100"></span>
+				</div>
+
+<!-- 				<div class="wrap-input100 validate-input" data-validate = "Please enter email: e@a.x">
+					<input class="input100" type="text" name="email" placeholder="Email">
+					<span class="focus-input100"></span>
+				</div> -->
+
+				<div class="wrap-input100 validate-input" data-validate="Please enter your time and date">
+					<input class="input100" type="text" id="missing" name="name" placeholder="time and date in dd/mm/yyyy 24:24 format">
+					<span class="focus-input100"></span>
+				</div>
+
+				
+
+				<div class="wrap-input100 validate-input" data-validate="Please enter your Location">
+					<br>
+					<button type="button" onclick="getLocation()" style="margin-left: 175px; background-color: #43a8db; border-radius: 5px; color: white;">Get your current location</button>
+					<input class="input100" type="text" name="name" id="loc" placeholder="Location of missing person">
+					<span class="focus-input100"></span>
+				</div>
+
+<!-- 				<div class="wrap-input100 validate-input" data-validate="Please enter Phone no.">
+					<input class="input100" type="number" name="name" id="phone" placeholder="Your Phone no.">
+					<span class="focus-input100"></span>
+				</div> -->
+
+
+				<div class="wrap-input100 validate-input" data-validate = "Please enter your message">
+					<textarea class="input100" name="message" id="" placeholder="Description of the complaint"></textarea>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="select an image from the window that popped">
+					<h5>Upload an image of missing person</h5>
+					<button></button>
+					<input class="input100" type="file" name="name" id="missing" placeholder="missing person image">
+					<span class="focus-input100"></span>
+				</div>
+
+
+				<div class="container-contact100-form-btn">
+					<button class="contact100-form-btn">
+					<a href="home.html" style="color: white;"><h5>Register fir</h5></a>
+					</button>
+				</div>
+
+
+			</form>
+
+			<div class="contact100-more">
+				Contact our 24/7 call center: <span class="contact100-more-highlight">+001 002 1234</span>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"></script>
+	<script src="js/map-custom.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+<script>
+var x = document.getElementById("loc");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+    alert("latitude:" + position.coords.latitude + " " + "longitude:" + position.coords.longitude);
+}
+alert(position.coords.latitude);
+
+</script>
+
+</body>
+</html>
