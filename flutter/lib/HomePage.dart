@@ -47,15 +47,31 @@ class _HomePageState extends State<HomePage> {
     MapView.setApiKey(API_KEY);
     database = FirebaseDatabase(app: widget.storage.app);
     database.reference().child('locations').onChildChanged.listen((event){
+      var results;
       if(event.snapshot.value.containsKey('seen')){
+        _getResults(event.snapshot.value['lat'], event.snapshot.value['lon']).then((addressList){
+          setState(() {
+            results = addressList.first;
+          });
+        });
         showDialog(
           context: context,
           builder: (BuildContext context) {
              return AlertDialog(
-               title: Text('Missing person found at new location!'),
+               title: (results != null) ? Text('Missing person found at ${results.addressLine}!') : Text('Getting Location'),
                content: Column(
                  children: <Widget>[
-                   Image.network('${event.snapshot.value['download']}')
+                   Expanded(
+                     child: SingleChildScrollView(
+                       child: Column(
+                         children: [
+                           Image.network('${event.snapshot.value['download']}'),
+                           Padding(padding: EdgeInsets.only(top: 10.0)),
+                           Image.network('${event.snapshot.value['download_cctv']}')
+                         ],
+                       ),
+                     ),
+                   )
                  ],
                ),
              );
@@ -70,7 +86,7 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       _image = image;
       uid = DateTime.now().millisecondsSinceEpoch;
-      _image = _image.renameSync('${_image.parent.path}/$uid.jpg');
+      _image = _image.renameSync('${_image.parent.path}/$uid.jpeg');
       print(_image.path);
     });
   }
@@ -79,12 +95,12 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       isStarted = true;
     });
-    final StorageReference ref = widget.storage.ref().child('${uid.toString()}.jpg');
+    final StorageReference ref = widget.storage.ref().child('${uid.toString()}.jpeg');
     ref.putFile(_image).events.listen((event){
       if(event.type == StorageTaskEventType.success){
         setState(() {
           isSuccessful = true;
-          widget.storage.ref().child('${uid.toString()}.jpg').getDownloadURL().then((downloadUrl){
+          widget.storage.ref().child('${uid.toString()}.jpeg').getDownloadURL().then((downloadUrl){
             database = FirebaseDatabase(app: widget.storage.app);
             database.reference().child('locations').child(uid.toString()).set({
               "download" : downloadUrl,
@@ -148,8 +164,7 @@ class _HomePageState extends State<HomePage> {
                                     showUserLocation: true,
                                     initialCameraPosition: new CameraPosition(
                                         new Location(27.9614424, 76.4002208), 14.0),
-                                    title: "Recently Visited"),
-                                toolbarActions: [new ToolbarAction("Close", 1)]);
+                                    title: "Recently Visited"));
                             mapView.onAnnotationDrag.listen((markerMap) {
                               var marker = markerMap.keys.first;
                               var location = markerMap[marker]; // The updated position of the marker.
